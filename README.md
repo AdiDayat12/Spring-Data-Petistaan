@@ -7,7 +7,7 @@
 <h3 style="text-align: left;">Table of Contents</h3>
 <hr>
 <ol style="text-align: left;">
-
+<li>Understanding the initial project</li>
 </ol>
 
 <h3 style="text-align: left;">Pre-Requisite</h3>
