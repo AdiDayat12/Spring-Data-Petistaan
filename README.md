@@ -7,7 +7,19 @@
 <h3 style="text-align: left;">Table of Contents</h3>
 <hr>
 <ol style="text-align: left;">
-<li>Understanding the initial project</li>
+	<li>Project Setup for Spring Data JPA</li>
+	<li>CRUD operations using Spring ORM -> To be released on 16-November-2024</li>
+	<li>CRUD using Spring Data JPA -> To be released on 20-November-2024</li>
+	<li>Pagination and Sorting -> To be released on 23-November-2024</li>
+	<li>Query by methods -> To be released on 27-November-2024</li>
+	<li>Query by annotations -> To be released on 30-November-2024</li>
+	<li>Criteria API -> To be released on 4-December-2024</li>
+	<li>Transactions -> To be released on 7-December-2024</li>
+	<li>Propagation, Anomalies and Isolation in Transactions -> To be released on 11-December-2024</li>
+	<li>Embedded database -> To be released on 14-December-2024</li>
+	<li>Multiple database -> To be released on 18-December-2024</li>
+	<li>Unit Testing -> To be released on 21-December-2024</li>
+	<li>Petistaan -> To be released on 25-December-2024</li>
 </ol>
 
 <h3 style="text-align: left;">Pre-Requisite</h3>

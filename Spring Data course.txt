@@ -1,1 +1,13 @@
-Demo1 - Understanding the initial project
+Demo1 - Project Setup for Spring Data JPA
+Demo2 - CRUD operations using Spring ORM -> To be released on 16-November-2024
+Demo3 - CRUD using Spring Data JPA -> To be released on 20-November-2024
+Demo4 - Pagination and Sorting -> To be released on 23-November-2024
+Demo5 - Query by methods -> To be released on 27-November-2024
+Demo6 - Query by annotations -> To be released on 30-November-2024
+Demo7 - Criteria API -> To be released on 4-December-2024
+Demo8 - Transactions -> To be released on 7-December-2024
+Propagation, Anomalies and Isolation in Transactions -> To be released on 11-December-2024
+Demo9 - Embedded database -> To be released on 14-December-2024
+Demo10 - Multiple database -> To be released on 18-December-2024
+Demo11 - Unit Testing -> To be released on 21-December-2024
+Petistaan -> To be released on 25-December-2024
