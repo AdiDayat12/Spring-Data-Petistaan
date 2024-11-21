@@ -9,7 +9,7 @@
 <ol style="text-align: left;">
 	<li>Project Setup for Spring Data JPA</li>
 	<li>CRUD operations using Spring ORM</li>
-	<li>CRUD using Spring Data JPA -> To be released on 20-November-2024</li>
+	<li>CRUD using Spring Data JPA</li>
 	<li>Pagination and Sorting -> To be released on 23-November-2024</li>
 	<li>Query by methods -> To be released on 27-November-2024</li>
 	<li>Query by annotations -> To be released on 30-November-2024</li>
