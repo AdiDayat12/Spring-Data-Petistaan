@@ -10,7 +10,7 @@
 	<li>Project Setup for Spring Data JPA</li>
 	<li>CRUD operations using Spring ORM</li>
 	<li>CRUD using Spring Data JPA</li>
-	<li>Pagination and Sorting -> To be released on 23-November-2024</li>
+	<li>Pagination and Sorting</li>
 	<li>Query by methods -> To be released on 27-November-2024</li>
 	<li>Query by annotations -> To be released on 30-November-2024</li>
 	<li>Criteria API -> To be released on 4-December-2024</li>

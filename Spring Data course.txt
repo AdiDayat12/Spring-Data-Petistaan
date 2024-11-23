@@ -1,7 +1,7 @@
 Demo1 - Project Setup for Spring Data JPA
 Demo2 - CRUD operations using Spring ORM
 Demo3 - CRUD using Spring Data JPA
-Demo4 - Pagination and Sorting -> To be released on 23-November-2024
+Demo4 - Pagination and Sorting
 Demo5 - Query by methods -> To be released on 27-November-2024
 Demo6 - Query by annotations -> To be released on 30-November-2024
 Demo7 - Criteria API -> To be released on 4-December-2024
