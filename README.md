@@ -12,7 +12,7 @@
 	<li>CRUD using Spring Data JPA</li>
 	<li>Pagination and Sorting</li>
 	<li>Query by methods</li>
-	<li>Query by annotations -> To be released on 30-November-2024</li>
+	<li>Query by annotations</li>
 	<li>Criteria API -> To be released on 4-December-2024</li>
 	<li>Transactions -> To be released on 7-December-2024</li>
 	<li>Propagation, Anomalies and Isolation in Transactions -> To be released on 11-December-2024</li>
