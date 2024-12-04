@@ -13,7 +13,7 @@
 	<li>Pagination and Sorting</li>
 	<li>Query by methods</li>
 	<li>Query by annotations</li>
-	<li>Criteria API -> To be released on 4-December-2024</li>
+	<li>Criteria API</li>
 	<li>Transactions -> To be released on 7-December-2024</li>
 	<li>Propagation, Anomalies and Isolation in Transactions -> To be released on 11-December-2024</li>
 	<li>Embedded database -> To be released on 14-December-2024</li>
