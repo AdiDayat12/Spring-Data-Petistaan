@@ -14,7 +14,7 @@
 	<li>Query by methods</li>
 	<li>Query by annotations</li>
 	<li>Criteria API</li>
-	<li>Transactions -> To be released on 7-December-2024</li>
+	<li>Transactions</li>
 	<li>Propagation, Anomalies and Isolation in Transactions -> To be released on 11-December-2024</li>
 	<li>Embedded database -> To be released on 14-December-2024</li>
 	<li>Multiple database -> To be released on 18-December-2024</li>

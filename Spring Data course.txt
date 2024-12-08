@@ -5,7 +5,7 @@ Demo4 - Pagination and Sorting
 Demo5 - Query by methods
 Demo6 - Query by annotations
 Demo7 - Criteria API
-Demo8 - Transactions -> To be released on 7-December-2024
+Demo8 - Transactions
 Propagation, Anomalies and Isolation in Transactions -> To be released on 11-December-2024
 Demo9 - Embedded database -> To be released on 14-December-2024
 Demo10 - Multiple database -> To be released on 18-December-2024
