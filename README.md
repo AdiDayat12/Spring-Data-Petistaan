@@ -16,7 +16,7 @@
 	<li>Criteria API</li>
 	<li>Transactions</li>
 	<li>Propagation, Anomalies and Isolation in Transactions</li>
-	<li>Embedded database -> To be released on 14-December-2024</li>
+	<li>Embedded database</li>
 	<li>Multiple database -> To be released on 18-December-2024</li>
 	<li>Unit Testing -> To be released on 21-December-2024</li>
 	<li>Petistaan -> To be released on 25-December-2024</li>
