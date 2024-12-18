@@ -8,6 +8,6 @@ Demo7 - Criteria API
 Demo8 - Transactions
 Propagation, Anomalies and Isolation in Transactions
 Demo9 - Embedded database
-Demo10 - Multiple database -> To be released on 18-December-2024
+Demo10 - Multiple database
 Demo11 - Unit Testing -> To be released on 21-December-2024
 Petistaan -> To be released on 25-December-2024
