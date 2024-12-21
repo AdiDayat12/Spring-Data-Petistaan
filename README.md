@@ -18,7 +18,7 @@
 	<li>Propagation, Anomalies and Isolation in Transactions</li>
 	<li>Embedded database</li>
 	<li>Multiple database</li>
-	<li>Unit Testing -> To be released on 21-December-2024</li>
+	<li>Unit Testing</li>
 	<li>Petistaan -> To be released on 25-December-2024</li>
 </ol>
 
