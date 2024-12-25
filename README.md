@@ -19,7 +19,7 @@
 	<li>Embedded database</li>
 	<li>Multiple database</li>
 	<li>Unit Testing</li>
-	<li>Petistaan -> To be released on 25-December-2024</li>
+	<li>Petistaan</li>
 </ol>
 
 <h3 style="text-align: left;">Pre-Requisite</h3>
