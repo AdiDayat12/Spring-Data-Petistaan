@@ -1,31 +1,29 @@
 package com.abhishekvermaa10.dto;
 
-import java.util.Objects;
+import com.abhishekvermaa10.enums.Gender;
+import com.abhishekvermaa10.enums.PetType;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author abhishekvermaa10
  */
+@NoArgsConstructor
+@ToString(callSuper = true)
+@Setter
+@Getter
 public class WildPetDTO extends PetDTO {
-	
+
 	private String birthPlace;
 
-	public String getBirthPlace() {
-		return birthPlace;
-	}
-
-	public void setBirthPlace(String birthPlace) {
+	@Builder
+	public WildPetDTO(int id, String name, Gender gender, PetType type, OwnerDTO ownerDTO, String birthPlace) {
+		super(id, name, gender, type, ownerDTO);
 		this.birthPlace = birthPlace;
 	}
 
-	@Override
-	public String toString() {
-		if (Objects.nonNull(getOwnerDTO())) {
-			return "WildPetDTO [id=" + getId() + ", name=" + getName() + ", gender=" + getGender() + ", type="
-					+ getType() + ", birthPlace=" + birthPlace + ", ownerDTO=" + getOwnerDTO() + "]";
-		} else {
-			return "WildPetDTO [id=" + getId() + ", name=" + getName() + ", gender=" + getGender() + ", type="
-					+ getType() + ", birthPlace=" + birthPlace + "]";
-		}
-	}
-	
 }

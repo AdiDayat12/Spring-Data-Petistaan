@@ -1,107 +1,67 @@
 package com.abhishekvermaa10.repository.impl.test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static com.abhishekvermaa10.enums.Gender.M;
+import static com.abhishekvermaa10.enums.PetType.BIRD;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.test.context.ContextConfiguration;
 
-import com.abhishekvermaa10.dto.DomesticPetDTO;
-import com.abhishekvermaa10.dto.OwnerDTO;
-import com.abhishekvermaa10.repository.impl.OwnerRepositoryImpl;
+import com.abhishekvermaa10.config.TestConfig;
+import com.abhishekvermaa10.entity.Owner;
+import com.abhishekvermaa10.repository.OwnerRepository;
+import com.abhishekvermaa10.util.TestDataUtil;
 
 /**
  * @author abhishekvermaa10
  */
-@SpringBootTest(classes = OwnerRepositoryImpl.class)
+@ContextConfiguration(classes = { TestConfig.class })
+@EntityScan(basePackages = "com.abhishekvermaa10.entity")
+@EnableJpaRepositories(basePackages = "com.abhishekvermaa10.repository")
+@DataJpaTest
 class OwnerRepositoryImplTest {
-	
+
 	@Autowired
-	private OwnerRepositoryImpl ownerRepositoryImpl;
-	private List<OwnerDTO> ownerDTOList;
-
-	@BeforeEach
-	public void setUp() {
-		ownerDTOList = (List<OwnerDTO>) ReflectionTestUtils.getField(ownerRepositoryImpl, "ownerDTOList");
-		ownerDTOList.clear();
-	}
+	private OwnerRepository ownerRepository;
 
 	@Test
-	void testSave() {
-		OwnerDTO expectedOwnerDTO = new OwnerDTO();
-		expectedOwnerDTO.setId(1);
-		ownerDTOList.add(expectedOwnerDTO);
-		ownerRepositoryImpl.save(expectedOwnerDTO);
-		assertEquals(expectedOwnerDTO, ownerDTOList.get(0));
-	}
-
-	@Test
-	void testFindByIdWhenFound() {
-		OwnerDTO expectedOwnerDTO = new OwnerDTO();
-		expectedOwnerDTO.setId(1);
-		ownerDTOList.add(expectedOwnerDTO);
-		Optional<OwnerDTO> actualOptionalOwnerDTO = ownerRepositoryImpl.findById(1);
-		assertEquals(expectedOwnerDTO, actualOptionalOwnerDTO.get());
+	void test_FindIdAndFirstNameAndLastNameAndPetName_ShouldReturnOwnerDetails_WhenOwnersExist() {
+		// Given
+		Owner owner1 = TestDataUtil.createMockOwnerWithMockDomesticPet("FirstName1", "LastName1", M, "City1", "State1",
+				"9876543211", "firstname1.lastname1@scaleupindia.com", "PetName1", M, BIRD, LocalDate.of(2021, 1, 1));
+		ownerRepository.save(owner1);
+		Owner owner2 = TestDataUtil.createMockOwnerWithMockDomesticPet("FirstName2", "LastName2", M, "City2", "State2",
+				"9876543212", "firstname2.lastname2@scaleupindia.com", "PetName2", M, BIRD, LocalDate.of(2022, 2, 2));
+		ownerRepository.save(owner2);
+		Owner owner3 = TestDataUtil.createMockOwnerWithMockDomesticPet("FirstName3", "LastName3", M, "City3", "State3",
+				"9876543213", "firstname3.lastname3@scaleupindia.com", "PetName3", M, BIRD, LocalDate.of(2023, 3, 3));
+		ownerRepository.save(owner3);
+		Pageable pageable = PageRequest.of(1, 2);
+		// When
+		List<Object[]> actualDetailsList = ownerRepository.findIdAndFirstNameAndLastNameAndPetName(pageable);
+		// Then
+		assertThat(actualDetailsList).isNotEmpty();
+		assertThat(actualDetailsList.get(0)).isNotNull().hasSize(4).containsExactly(owner3.getId(), "FirstName3",
+				"LastName3", "PetName3");
 	}
 
 	@Test
-	void testFindByIdWhenNotFound() {
-		Optional<OwnerDTO> expectedOptionalOwnerDTO = Optional.empty();
-		Optional<OwnerDTO> actualOptionalOwnerDTO = ownerRepositoryImpl.findById(1);
-		assertEquals(expectedOptionalOwnerDTO, actualOptionalOwnerDTO);
-	}
-	
-	@Test
-	void testUpdatePetDetailsWhenFound() {
-		OwnerDTO expectedOwnerDTO = new OwnerDTO();
-		expectedOwnerDTO.setId(1);
-		DomesticPetDTO expectedPetDTO = new DomesticPetDTO();
-		expectedPetDTO.setId(1);
-		expectedPetDTO.setName("Max");
-		expectedOwnerDTO.setPetDTO(expectedPetDTO);
-		ownerDTOList.add(expectedOwnerDTO);
-		ownerRepositoryImpl.updatePetDetails(1, "Tom");
-		assertEquals("Tom", expectedOwnerDTO.getPetDTO().getName());
-	}
-	
-	@Test
-	void testUpdatePetDetailsWhenNotFound() {
-		OwnerDTO expectedOwnerDTO = new OwnerDTO();
-		expectedOwnerDTO.setId(1);
-		DomesticPetDTO expectedPetDTO = new DomesticPetDTO();
-		expectedPetDTO.setId(1);
-		expectedPetDTO.setName("Max");
-		expectedOwnerDTO.setPetDTO(expectedPetDTO);
-		ownerDTOList.add(expectedOwnerDTO);
-		ownerRepositoryImpl.updatePetDetails(2, "Tom");
-		assertEquals("Max", expectedOwnerDTO.getPetDTO().getName());
+	void test_FindIdAndFirstNameAndLastNameAndPetName_WhenNoOwnersExist_ShouldReturnEmptyList() {
+		// Given
+		Pageable pageable = PageRequest.of(1, 2);
+		// When
+		List<Object[]> actualDetailsList = ownerRepository.findIdAndFirstNameAndLastNameAndPetName(pageable);
+		// Then
+		assertThat(actualDetailsList).isEmpty();
 	}
 
-	@Test
-	void testDeleteByIdWhenFound() {
-		OwnerDTO expectedOwnerDTO = new OwnerDTO();
-		expectedOwnerDTO.setId(1);
-		ownerDTOList.add(expectedOwnerDTO);
-		ownerRepositoryImpl.deleteById(1);
-		assertEquals(0, ownerDTOList.size());
-	}
-	
-	@Test
-	void testDeleteByIdWhenNotFound() {
-		ownerRepositoryImpl.deleteById(2);
-		assertEquals(0, ownerDTOList.size());
-	}
-
-	@Test
-	void testFindAll() {
-		List<OwnerDTO> actualOwnerDTOList = ownerRepositoryImpl.findAll();
-		assertNotNull(actualOwnerDTOList);
-	}
-	
 }

@@ -3,7 +3,6 @@ package com.abhishekvermaa10.service;
 import java.util.List;
 
 import com.abhishekvermaa10.dto.OwnerDTO;
-import com.abhishekvermaa10.exception.DuplicateOwnerIdException;
 import com.abhishekvermaa10.exception.OwnerNotFoundException;
 
 /**
@@ -11,7 +10,7 @@ import com.abhishekvermaa10.exception.OwnerNotFoundException;
  */
 public interface OwnerService {
 	
-	void saveOwner(OwnerDTO ownerDTO) throws DuplicateOwnerIdException;
+	void saveOwner(OwnerDTO ownerDTO);
 
 	OwnerDTO findOwner(int ownerId) throws OwnerNotFoundException;
 

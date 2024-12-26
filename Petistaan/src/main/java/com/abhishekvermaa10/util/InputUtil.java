@@ -12,19 +12,19 @@ import com.abhishekvermaa10.dto.WildPetDTO;
 import com.abhishekvermaa10.enums.Gender;
 import com.abhishekvermaa10.enums.PetType;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * @author abhishekvermaa10
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class InputUtil {
-	
-	private InputUtil() {
-		
-	}
-	
+
 	public static int acceptMenuOption(Scanner scanner) {
 		System.out.println("Press 1 to add new owner.");
 		System.out.println("Press 2 to fetch owner details.");
-		System.out.println("Press 3 to updated pet details of owner.");
+		System.out.println("Press 3 to update pet details of owner.");
 		System.out.println("Press 4 to delete owner details.");
 		System.out.println("Press 5 to fetch all owners.");
 		System.out.println("Press 6 to fetch pet details.");
@@ -46,8 +46,6 @@ public class InputUtil {
 	}
 
 	public static OwnerDTO acceptOwnerDetailsToSave(Scanner scanner) {
-		System.out.println("Enter id of owner:");
-		int id = scanner.nextInt();
 		System.out.println("Enter first name of owner:");
 		String firstName = scanner.next();
 		System.out.println("Enter last name of owner:");
@@ -63,16 +61,15 @@ public class InputUtil {
 		System.out.println("Enter email id of owner:");
 		String emailId = scanner.next();
 		try {
-			OwnerDTO ownerDTO = new OwnerDTO();
-			ownerDTO.setId(id);
-			ownerDTO.setFirstName(firstName);
-			ownerDTO.setLastName(lastName);
-			ownerDTO.setGender(Gender.valueOf(gender));
-			ownerDTO.setCity(city);
-			ownerDTO.setState(state);
-			ownerDTO.setMobileNumber(mobileNumber);
-			ownerDTO.setEmailId(emailId);
-			return ownerDTO;
+			return OwnerDTO.builder()
+					.firstName(firstName)
+					.lastName(lastName)
+					.gender(Gender.valueOf(gender))
+					.city(city)
+					.state(state)
+					.mobileNumber(mobileNumber)
+					.emailId(emailId)
+					.build();
 		} catch (Exception exception) {
 			System.out.println(exception.getMessage());
 			return acceptOwnerDetailsToSave(scanner);
@@ -80,8 +77,6 @@ public class InputUtil {
 	}
 
 	public static PetDTO acceptPetDetailsToSave(Scanner scanner) {
-		System.out.println("Enter id of pet:");
-		int petId = scanner.nextInt();
 		System.out.println("Enter name of pet:");
 		String petName = scanner.next();
 		System.out.println("Press D for domestic pet and W for wild pet.");
@@ -100,21 +95,23 @@ public class InputUtil {
 		System.out.println("Enter pet type:" + Arrays.asList(PetType.values()).toString());
 		String petType = scanner.next().toUpperCase();
 		try {
-			PetDTO petDTO = null;
 			if ('D' == choice) {
-				petDTO = new DomesticPetDTO();
-				((DomesticPetDTO) petDTO).setBirthDate(convertStringToDate(petDateOfBirth));
+				return DomesticPetDTO.builder()
+						.name(petName)
+						.gender(Gender.valueOf(petGender))
+						.type(PetType.valueOf(petType))
+						.birthDate(convertStringToDate(petDateOfBirth))
+						.build();
 			} else if ('W' == choice) {
-				petDTO = new WildPetDTO();
-				((WildPetDTO) petDTO).setBirthPlace(petPlaceOfBirth);
+				return WildPetDTO.builder()
+						.name(petName)
+						.gender(Gender.valueOf(petGender))
+						.type(PetType.valueOf(petType))
+						.birthPlace(petPlaceOfBirth)
+						.build();
 			} else {
 				throw new IllegalArgumentException("Unsupported pet choice: " + choice);
 			}
-			petDTO.setId(petId);
-			petDTO.setName(petName);
-			petDTO.setGender(Gender.valueOf(petGender));
-			petDTO.setType(PetType.valueOf(petType));
-			return petDTO;
 		} catch (Exception exception) {
 			System.out.println(exception.getMessage());
 			return acceptPetDetailsToSave(scanner);
@@ -135,7 +132,7 @@ public class InputUtil {
 		System.out.println("Enter id of pet:");
 		return scanner.nextInt();
 	}
-	
+
 	public static int acceptPageSizeToOperate(Scanner scanner) {
 		System.out.println("Enter page size:");
 		int pageSize = scanner.nextInt();
@@ -162,5 +159,5 @@ public class InputUtil {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		return LocalDate.parse(stringDate, format);
 	}
-	
+
 }

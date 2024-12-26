@@ -16,9 +16,12 @@ import com.abhishekvermaa10.service.OwnerService;
 import com.abhishekvermaa10.service.PetService;
 import com.abhishekvermaa10.util.InputUtil;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * @author abhishekvermaa10
  */
+@RequiredArgsConstructor
 @PropertySource("classpath:messages.properties")
 @SpringBootApplication
 public class Demo implements CommandLineRunner {
@@ -26,11 +29,6 @@ public class Demo implements CommandLineRunner {
 	private final OwnerService ownerService;
 	private final PetService petService;
 	private static final Logger LOGGER = LoggerFactory.getLogger(Demo.class);
-
-	public Demo(OwnerService ownerService, PetService petService) {
-		this.ownerService = ownerService;
-		this.petService = petService;
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Demo.class, args);

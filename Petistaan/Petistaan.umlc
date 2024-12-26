@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-rel="true" router="FAN">  
   <class id="1" language="java" name="com.abhishekvermaa10.util.InputUtil" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/util/InputUtil.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="185" y="137"/>    
+    <position height="-1" width="-1" x="186" y="153"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -51,7 +51,7 @@
   <interface id="6" language="java" name="com.abhishekvermaa10.repository.OwnerRepository" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/repository/OwnerRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1197" y="112"/>    
+    <position height="-1" width="-1" x="1251" y="317"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -61,130 +61,74 @@
   <interface id="7" language="java" name="com.abhishekvermaa10.repository.PetRepository" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/repository/PetRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1202" y="591"/>    
+    <position height="-1" width="-1" x="1203" y="734"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="8" language="java" name="com.abhishekvermaa10.repository.impl.PetRepositoryImpl" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/repository/impl/PetRepositoryImpl.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1197" y="772"/>    
-    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
-      accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="com.abhishekvermaa10.repository.impl.OwnerRepositoryImpl" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/repository/impl/OwnerRepositoryImpl.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1189" y="353"/>    
-    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
-      accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="com.abhishekvermaa10.service.impl.test.OwnerServiceImplTest" project="Petistaan" 
+  <class id="8" language="java" name="com.abhishekvermaa10.service.impl.test.OwnerServiceImplTest" project="Petistaan" 
     file="/Petistaan/src/test/java/com/abhishekvermaa10/service/impl/test/OwnerServiceImplTest.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1669" y="152"/>    
+    <position height="-1" width="-1" x="1872" y="136"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="com.abhishekvermaa10.service.impl.test.PetServiceImplTest" project="Petistaan" 
+  <class id="9" language="java" name="com.abhishekvermaa10.service.impl.test.PetServiceImplTest" project="Petistaan" 
     file="/Petistaan/src/test/java/com/abhishekvermaa10/service/impl/test/PetServiceImplTest.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1649" y="364"/>    
+    <position height="-1" width="-1" x="1857" y="385"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="com.abhishekvermaa10.repository.impl.test.OwnerRepositoryImplTest" 
+  <class id="10" language="java" name="com.abhishekvermaa10.repository.impl.test.OwnerRepositoryImplTest" 
     project="Petistaan" 
     file="/Petistaan/src/test/java/com/abhishekvermaa10/repository/impl/test/OwnerRepositoryImplTest.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1668" y="600"/>    
+    <position height="-1" width="-1" x="1832" y="583"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="com.abhishekvermaa10.repository.impl.test.PetRepositoryImplTest" 
+  <class id="11" language="java" name="com.abhishekvermaa10.repository.impl.test.PetRepositoryImplTest" 
     project="Petistaan" 
     file="/Petistaan/src/test/java/com/abhishekvermaa10/repository/impl/test/PetRepositoryImplTest.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1660" y="826"/>    
+    <position height="-1" width="-1" x="1836" y="752"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="14" language="java" name="com.abhishekvermaa10.enums.Gender" project="Petistaan" 
+  <enumeration id="12" language="java" name="com.abhishekvermaa10.enums.Gender" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/enums/Gender.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="714" y="992"/>    
+    <position height="-1" width="-1" x="880" y="954"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="15" language="java" name="com.abhishekvermaa10.enums.PetType" project="Petistaan" 
+  <enumeration id="13" language="java" name="com.abhishekvermaa10.enums.PetType" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/enums/PetType.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1036" y="1022"/>    
+    <position height="-1" width="-1" x="1267" y="980"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="16" language="java" name="com.abhishekvermaa10.dto.OwnerDTO" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/OwnerDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="521" y="1448"/>    
-    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
-      accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="com.abhishekvermaa10.dto.PetDTO" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/PetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1005" y="1344"/>    
-    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
-      accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="com.abhishekvermaa10.dto.DomesticPetDTO" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/DomesticPetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="817" y="1650"/>    
-    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
-      accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="19" language="java" name="com.abhishekvermaa10.dto.WildPetDTO" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/WildPetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1144" y="1650"/>    
-    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
-      accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="20" language="java" name="com.abhishekvermaa10.Demo" project="Petistaan" 
+  <class id="14" language="java" name="com.abhishekvermaa10.Demo" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/Demo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="212" y="466"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
@@ -193,219 +137,462 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="com.abhishekvermaa10.aspect.LogAspect" project="Petistaan" 
+  <class id="15" language="java" name="com.abhishekvermaa10.aspect.LogAspect" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/aspect/LogAspect.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="229" y="660"/>    
+    <position height="-1" width="-1" x="225" y="684"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="com.abhishekvermaa10.exception.OwnerNotFoundException" project="Petistaan" 
+  <class id="16" language="java" name="com.abhishekvermaa10.exception.OwnerNotFoundException" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/exception/OwnerNotFoundException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="157" y="859"/>    
+    <position height="-1" width="-1" x="155" y="903"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="com.abhishekvermaa10.exception.PetNotFoundException" project="Petistaan" 
+  <class id="17" language="java" name="com.abhishekvermaa10.exception.PetNotFoundException" project="Petistaan" 
     file="/Petistaan/src/main/java/com/abhishekvermaa10/exception/PetNotFoundException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="397" y="858"/>    
+    <position height="-1" width="-1" x="403" y="903"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="com.abhishekvermaa10.exception.DuplicateOwnerIdException" project="Petistaan" 
-    file="/Petistaan/src/main/java/com/abhishekvermaa10/exception/DuplicateOwnerIdException.java" binary="false" 
+  <class id="18" language="java" name="com.abhishekvermaa10.dto.OwnerDTO.OwnerDTOBuilder" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/OwnerDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="347" y="2072"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.abhishekvermaa10.dto.OwnerDTO" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/OwnerDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="308" y="1463"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.abhishekvermaa10.dto.PetDTO" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/PetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="913" y="1368"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.abhishekvermaa10.dto.DomesticPetDTO.DomesticPetDTOBuilder" 
+    project="Petistaan" file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/DomesticPetDTO.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="284" y="991"/>    
+    <position height="-1" width="-1" x="828" y="2093"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.abhishekvermaa10.dto.DomesticPetDTO" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/DomesticPetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="824" y="1771"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.abhishekvermaa10.dto.WildPetDTO.WildPetDTOBuilder" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/WildPetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1290" y="2093"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.abhishekvermaa10.dto.WildPetDTO" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/dto/WildPetDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1284" y="1768"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.abhishekvermaa10.entity.Owner" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/entity/Owner.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1611" y="1447"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.abhishekvermaa10.entity.Base" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/entity/Base.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1794" y="1058"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.abhishekvermaa10.entity.Pet" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/entity/Pet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1974" y="1341"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.abhishekvermaa10.entity.DomesticPet" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/entity/DomesticPet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1866" y="1635"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.abhishekvermaa10.entity.WildPet" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/entity/WildPet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2085" y="1635"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="30" language="java" name="com.abhishekvermaa10.util.OwnerMapper" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/util/OwnerMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1249" y="121"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
+  </interface>  
+  <interface id="31" language="java" name="com.abhishekvermaa10.util.PetMapper" project="Petistaan" 
+    file="/Petistaan/src/main/java/com/abhishekvermaa10/util/PetMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1200" y="533"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="32" language="java" name="com.abhishekvermaa10.config.TestConfig" project="Petistaan" 
+    file="/Petistaan/src/test/java/com/abhishekvermaa10/config/TestConfig.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1494" y="885"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
   </class>  
-  <association id="25">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="26" name="petDTO"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="29" name="ownerRepository"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="32" name="ownerDTOList"/>      
-      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <class id="33" language="java" name="com.abhishekvermaa10.util.TestDataUtil" project="Petistaan" 
+    file="/Petistaan/src/test/java/com/abhishekvermaa10/util/TestDataUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1990" y="914"/>    
+    <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
+      accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <association id="34">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="35" name="petDTOList"/>      
-      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="35" name="ownerDTO"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="38" name="ownerServiceImpl"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
+  <nesting id="37">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="21"/>  
+  </nesting>  
+  <nesting id="38">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="18"/>  
+  </nesting>  
+  <association id="39">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="40" name="petDTO"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="41" name="ownerDTOList"/>      
-      <multiplicity id="42" minimum="0" maximum="2147483647"/>    
+  <association id="42">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="43" name="ownerDTO"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="43">    
+  <generalization id="45">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="46">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="44" name="petRepository"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+      <attribute id="47" name="petRepository"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="47" name="ownerService"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+  <generalization id="49">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <association id="50">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="51" name="gender"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="49">    
+  <generalization id="53">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <realization id="54">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <association id="51">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="52" name="petRepositoryImpl"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
+  <association id="55">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="56" name="petMapper"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="31" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="55" name="petServiceImpl"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+  <association id="58">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="59" name="type"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="62" name="petServiceImpl"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="58" name="petDTOList"/>      
-      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="61" name="ownerRepository"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
+  <association id="64">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="64" name="petRepository"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
+      <attribute id="65" name="petRepository"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="67" name="type"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
+  <association id="67">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="68" name="petRepository"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="69">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="6"/>  
+  <realization id="70">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
   </realization>  
-  <association id="70">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="71" name="gender"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
+  <association id="71">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="72" name="gender"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="74" name="ownerRepositoryImpl"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+  <generalization id="74">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <association id="75">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="76" name="ownerRepository"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="76">    
+  <association id="78">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="79" name="ownerRepository"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="82" name="gender"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="85" name="ownerService"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="88" name="owner"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="91" name="ownerMapper"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="94" name="type"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="97" name="gender"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
     <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="77" name="petService"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
+      <attribute id="100" name="gender"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="102">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="103">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="104">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="105" name="petService"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="79">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <realization id="80">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <association id="81">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="82" name="ownerDTO"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
+  <association id="107">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="108" name="ownerRepository"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="84">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <association id="85">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="86" name="gender"/>      
-      <multiplicity id="87" minimum="0" maximum="1"/>    
+  <association id="110">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="111" name="petDTO"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="113">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="23"/>  
+  </nesting>  
+  <association id="114">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="115" name="ownerServiceImpl"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="117">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="118" name="type"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="121" name="ownerDTO"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="124" name="type"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="127" name="pet"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="130" name="gender"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="133" name="gender"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-attribute resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" 
