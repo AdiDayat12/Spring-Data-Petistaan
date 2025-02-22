@@ -40,8 +40,8 @@
     Before diving into Spring Data JPA, ensure you're comfortable with the following concepts:
 <ul>
     <li>Java</li>
+    <li>Java Database Connectivity (JDBC)<li>
     <li>Maven</li>
-    <li>Java Database Connectivity (JDBC)</li>
     <li>Hibernate</li>
     <li>Spring Basics with Spring Boot</li>
 </ul>
