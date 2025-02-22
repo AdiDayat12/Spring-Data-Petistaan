@@ -41,6 +41,7 @@
 <ul>
     <li>Java</li>
     <li>Maven</li>
+    <li>Java Database Connectivity (JDBC)<li>
     <li>Hibernate</li>
     <li>Spring Basics with Spring Boot</li>
 </ul>
