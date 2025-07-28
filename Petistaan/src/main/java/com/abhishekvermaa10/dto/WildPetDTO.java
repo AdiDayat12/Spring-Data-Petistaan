@@ -3,6 +3,8 @@ package com.abhishekvermaa10.dto;
 import com.abhishekvermaa10.enums.Gender;
 import com.abhishekvermaa10.enums.PetType;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,8 @@ import lombok.ToString;
 @Getter
 public class WildPetDTO extends PetDTO {
 
+	@NotBlank(message = "{pet.birth.place.required}")
+	@Size(max = 255, message = "{pet.birth.place.length}")
 	private String birthPlace;
 
 	@Builder

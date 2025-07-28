@@ -1,5 +1,6 @@
 package com.abhishekvermaa10.service.impl;
 
+import com.abhishekvermaa10.dto.AverageAgeDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -31,9 +32,9 @@ public class PetServiceImpl implements PetService {
 	}
 	
 	@Override
-	public Double findAverageAgeOfPet() {
-		return petRepository.findAverageAgeOfPet()
-				.orElse(0.0);
+	public AverageAgeDTO findAverageAgeOfPet() {
+		double average = petRepository.findAverageAgeOfPet().orElse(0.0);
+		return new AverageAgeDTO(average);
 	}
 	
 }

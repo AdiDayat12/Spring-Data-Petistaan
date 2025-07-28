@@ -1,0 +1,14 @@
+{
+  "category": "Wild",
+  "id": 1,
+  "name": "Tiger",
+  "gender": "M",
+  "type": "RABBIT",
+  "ownerDTO": {
+    "id": 10,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com"
+  },
+  "birthPlace": "Amazon Rainforest"
+}

@@ -13,11 +13,13 @@ import java.time.Period;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import com.abhishekvermaa10.repository.OwnerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.abhishekvermaa10.config.TestConfig;
@@ -32,13 +34,18 @@ import com.abhishekvermaa10.util.TestDataUtil;
 @EnableJpaRepositories(basePackages = "com.abhishekvermaa10.repository")
 @ContextConfiguration(classes = { TestConfig.class })
 @DataJpaTest
+@ActiveProfiles("test")
 class PetRepositoryImplTest {
-	
+
 	@Autowired
 	private PetRepository petRepository;
-	
+	@Autowired
+	private OwnerRepository ownerRepository;
 	@Test
 	void test_FindAverageAgeOfPet_WhenPetsExist_ShouldReturnCorrectAverageAge() {
+		// Given
+		ownerRepository.deleteAll();
+
 		// Given
 		DomesticPet domesticPet1 = TestDataUtil.createMockDomesticPet("PetName1", M, BIRD, LocalDate.of(2021, 1, 1));
 		petRepository.save(domesticPet1);
@@ -60,6 +67,8 @@ class PetRepositoryImplTest {
 
 	@Test
 	void test_FindAverageAgeOfPet_WhenNoPetsExist_ShouldReturnEmptyOptional() {
+		// Give
+		ownerRepository.deleteAll();
 		// When
 		Optional<Double> actualAverageAge = petRepository.findAverageAgeOfPet();
 		// Then

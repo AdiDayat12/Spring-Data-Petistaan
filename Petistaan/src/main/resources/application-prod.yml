@@ -1,0 +1,11 @@
+app:
+  transliterate.apiType: real
+
+logging:
+  file:
+    name: logs/app.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      file-name-pattern: logs/app-%d{yyyy-MM-dd}.%i.log
+      max-history: 30

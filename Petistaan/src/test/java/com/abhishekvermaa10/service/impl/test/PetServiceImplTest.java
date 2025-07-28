@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
+import com.abhishekvermaa10.dto.AverageAgeDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,7 +56,7 @@ class PetServiceImplTest {
 		// Given
 		int inputPetId = 1;
 		when(petRepository.findById(inputPetId)).thenReturn(Optional.empty());
-		String expectedMessage = String.format("Can't find pet with petId %s", inputPetId);
+		String expectedMessage = String.format("Can't find pet with petId %s.", inputPetId);
 		// When & Then
 		assertThatThrownBy(() -> petServiceImpl.findPet(inputPetId)).isInstanceOf(PetNotFoundException.class)
 				.hasMessage(expectedMessage);
@@ -68,9 +69,9 @@ class PetServiceImplTest {
 		Double expectedAverageAge = 5.0;
 		when(petRepository.findAverageAgeOfPet()).thenReturn(Optional.of(expectedAverageAge));
 		// When
-		Double actualAverageAge = petServiceImpl.findAverageAgeOfPet();
+		AverageAgeDTO actualAverageAge = petServiceImpl.findAverageAgeOfPet();
 		// Then
-		assertThat(actualAverageAge).isEqualTo(expectedAverageAge);
+		assertThat(actualAverageAge.getAverage()).isEqualTo(expectedAverageAge);
 		verify(petRepository, times(1)).findAverageAgeOfPet();
 	}
 
@@ -80,9 +81,9 @@ class PetServiceImplTest {
 		Double expectedAverageAge = 0.0;
 		when(petRepository.findAverageAgeOfPet()).thenReturn(Optional.empty());
 		// When
-		Double actualAverageAge = petServiceImpl.findAverageAgeOfPet();
+        AverageAgeDTO actualAverageAge = petServiceImpl.findAverageAgeOfPet();
 		// Then
-		assertThat(actualAverageAge).isEqualTo(expectedAverageAge);
+		assertThat(actualAverageAge.getAverage()).isEqualTo(expectedAverageAge);
 		verify(petRepository, times(1)).findAverageAgeOfPet();
 	}
 

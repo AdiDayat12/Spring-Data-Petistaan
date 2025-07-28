@@ -1,0 +1,429 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package com.abhishekvermaa10 {
+    package aspect{
+        class LogAspect {
+                - Logger LOGGER
+                + serviceMethodExpression()
+                + logBeforeAdvice(joinPoint: JoinPoint)
+                + logAfterReturningAdvice(joinPoint: JoinPoint, result: Object)
+                + logAfterThrowingAdvice(joinPoint: JoinPoint, exception: Exception)
+            }
+    }
+    package config{
+        class LocaleConfig <<configuration>> {
+             + messageSource():MessageSource <<Bean>>
+        }
+        class WebConfig <<configuration>> {
+            + addCorsMappings(registry:CorsRegistry): void
+        }
+    }
+    package controller {
+        package advice {
+            class GlobalExceptionHandler <<advice>> {
+                + handleMethodArgumentException(e : MethodArgumentNotValidException) : ResponseEntity<ErrorDTO>
+                + ownerNotFound(e : OwnerNotFoundException) : ResponseEntity<ErrorDTO>
+                + handlePetNotFound(e : PetNotFoundException) : ResponseEntity<ErrorDTO>
+                + handleInvalidId(e : ConstraintViolationException) : ResponseEntity<ErrorDTO>
+                + handlerInternalServerError(e : Exception) : ResponseEntity<ErrorDTO>
+                + handleMessageNotReadable (e : Exception) : ResponseEntity<ErrorDTO>
+                - returnHandler(message : String, errorCode : int, httpStatus : HttpStatus) : ResponseEntity<ErrorDTO>
+            }
+        }
+        abstract class BaseController{
+            # messageSource : MessageSource
+            # success (data: T, httpStatus: HttpStatus):ResponseEntity<WebResponse<T>>
+            - getMessage (): String
+        }
+        class OwnerController <<controller>> {
+            - ownerService : OwnerService
+
+             + save(ownerDTO : OwnerDTO) : ResponseEntity<WebResponse<OwnerIDDTO>>
+             + findOwner(ownerId : int) : ResponseEntity<WebResponse<OwnerDTO>>
+             + update(updatePetDTO : UpdatePetDTO) : ResponseEntity<WebResponse<Void>>
+             + deleteOwner(ownerId : int) : ResponseEntity<WebResponse<Void>>
+             + getAllOwner() : ResponseEntity<WebResponse<List<OwnerDTO>>>
+             + findDetails(page : int, size : int, sortBy : String, ascending : boolean) : ResponseEntity<WebResponse<Page<OwnerPetInfoDTO>>>
+        }
+        class PetController <<controller>> {
+            -petService: PetService
+
+            +getPet(petId: int): ResponseEntity<WebResponse<PetDTO>>
+            +getAverageAge(): ResponseEntity<WebResponse<AverageAgeDTO>>
+        }
+    }
+
+    package dto {
+        class OwnerDTO <<DTO>> {
+            - id : int
+            - firstName : String
+            - lastName : String
+            - gender : Gender
+            - city : String
+            - state : String
+            - mobileNumber : String
+            - emailId : String
+            - petDTO : PetDTO
+
+            +getId(): int
+            +setId(id: int): void
+            +getFirstName(): String
+            +setFirstName(firstName: String): void
+            +getLastName(): String
+            +setLastName(lastName: String): void
+            +getGender(): Gender
+            +setGender(gender: Gender): void
+            +getCity(): String
+            +setCity(city: String): void
+            +getState(): String
+            +setState(state: String): void
+            +getMobileNumber(): String
+            +setMobileNumber(mobileNumber: String): void
+            +getEmailId(): String
+            +setEmailId(emailId: String): void
+            +getPetDTO(): PetDTO
+            +setPetDTO(petDTO: PetDTO): void
+        }
+        class OwnerIDDTO <<DTO>> {
+            - ownerID : int
+
+            + getOwnerID () : int
+            + setOwnerID (ownerID : int) : void
+        }
+        class UpdatePetDTO <<DTO>> {
+            - ownerId : int
+            - petName : String
+
+            + getOwnerId () : int
+            + setOwnerId (ownerId : int) : void
+            + getPetName () : String
+            + setPetName (petName: String) : void
+        }
+        class OwnerPetInfoDTO <<DTO>> {
+            - ownerId : int
+            - firstName : String
+            - lastName : int
+            - petName : String
+
+            +getOwnerId(): int
+            +setOwnerId(ownerId: int): void
+            +getFirstName(): String
+            +setFirstName(firstName: String): void
+            +getLastName(): String
+            +setLastName(lastName: String): void
+            +getPetName(): String
+            +setPetName(petName: String): void
+        }
+        abstract class PetDTO <<DTO>> {
+            - id : int
+            - name : String
+            - gender : Gender
+            - type : PetType
+            - ownerDTO : OwnerDTO
+
+            +getId(): int
+            +setId(id: int): void
+            +getName(): String
+            +setName(name: String): void
+            +getGender(): Gender
+            +setGender(gender: Gender): void
+            +getType(): PetType
+            +setType(type: PetType): void
+            +getOwnerDTO(): OwnerDTO
+            +setOwnerDTO(ownerDTO: OwnerDTO): void
+        }
+        class WildPetDTO <<DTO>> {
+            - birthPlace : String
+            + WildPetDTO(id : int, name : String, gender : Gender, type : PetType, ownerDTO : OwnerDTO, birthPlace : String)
+
+            +getBirthPlace(): String
+            +setBirthPlace(birthPlace: String): void
+        }
+        class DomesticPetDTO <<DTO>> {
+            - birthDate : LocalDate
+            - formattedBirthDate : String
+            + DomesticPetDTO(id : int, name : String, gender : Gender, type : PetType, ownerDTO : OwnerDTO, birthDate : LocalDate, formattedBirthDate : String)
+
+            + getBirthDate(): LocalDate
+            + setBirthDate(birthDate: LocalDate): void
+            + getFormattedBirthDate(): String
+            + setFormattedBirthDate(formattedBirthDate: String): void
+        }
+
+        class AverageAgeDTO <<DTO>> {
+            - average : double
+
+            + getAverage () : double
+            + setAverage (age : double) : void
+        }
+        class ErrorDTO <<DTO>> {
+            - timeStamp : LocalDateTime
+            - message : String
+            - status : int
+            - error : HttpStatus
+
+            +getTimeStamp(): LocalDateTime
+            +setTimeStamp(timeStamp: LocalDateTime): void
+            +getMessage(): String
+            +setMessage(message: String): void
+            +getStatus(): int
+            +setStatus(status: int): void
+            +getError(): HttpStatus
+            +setError(error: HttpStatus): void
+        }
+        class WebResponse<T> {
+            - message : String
+            - data : T
+            - timeStamp : LocalDateTime
+
+            +getMessage(): String
+            +setMessage(message: String): void
+            +getData(): T
+            +setData(data: T): void
+            +getTimeStamp(): LocalDateTime
+            +setTimeStamp(timeStamp: LocalDateTime): void
+        }
+    }
+
+    package entity {
+        abstract class Base {
+            - id : int
+
+            + getId () : int
+        }
+        class Owner {
+            - firstName : String
+            - lastName : String
+            - gender : Gender
+            - city : String
+            - state : String
+            - mobileNumber : String
+            - emailId : String
+            - pet : Pet
+
+            + getFirstName () : String
+            + getLastName () : String
+            + getGender () : Gender
+            + getCity () : String
+            + getState () : String
+            + getMobileNumber () : String
+            + getEmailId () : String
+            + getPet () : Pet
+            + setFirstName (firstName : String) : void
+            + setLastName (lastName : String) : void
+            + setGender (gender : Gender) : void
+            + setCity (city : String) : void
+            + setState (state : String) : void
+            + setMobileNumber (mobileNumber : String) : void
+            + setEmailId (emailId : String) : void
+            + setPet (pet : Pet) : void
+        }
+        abstract class Pet {
+            - name : String
+            - gender : Gender
+            - type : PetType
+            - owner : Owner
+
+            + getName () : String
+            + getGender () : String
+            + getType () : PetType
+            + getOwner () : Owner
+            - setName (name : String) : void
+            - setGender (gender : Gender) : void
+            - setType (type : PetType) : void
+            - setOwner (owner: Owner) : void
+        }
+        class DomesticPet {
+            - birthDate : LocalDate
+
+            + getBirthDate () : String
+            - setBirthDate (birthDate : LocalDate) : void
+        }
+        class WildPet {
+            - birthPlace : String
+
+            + getBirthPlace () : String
+            - setBirthPlace (birthPlace : String) : void
+        }
+    }
+
+    package enums {
+        enum Gender <<enum>> {
+            M
+            F
+        }
+        enum PetTYpe <<enum>> {
+            BIRD
+        	CAT
+        	DOG
+        	FISH
+        	RABBIT
+        }
+    }
+
+    package exception {
+        class OwnerNotFoundException <<exception>> {
+            + OwnerNotFoundException(message: String)
+        }
+        class PetNotFoundException <<exception>> {
+            + PetNotFoundException(message: String)
+        }
+    }
+
+    package repository {
+        interface PetRepository <<repository>> {
+            + findAverageAgeOfPet() : Optional<Double>
+        }
+        interface OwnerRepository <<repository>> {
+            + findIdAndFirstNameAndLastNameAndPetName (pageable : Pageable) : List<Object[]>
+        }
+    }
+
+    package service {
+        package impl {
+            class PetServiceImpl {
+                - petRepository : PetRepository {readOnly}
+                - petMapper : PetMapper {readOnly}
+                - petNotFound : String
+
+                + findPet (petId: int) <<throws PetNotFoundException>>
+                + findAverageAgeOfPet () : AverageAgeDTO
+            }
+            class OwnerServiceImpl {
+                - ownerRepository : OwnerRepository {readOnly}
+                - ownerMapper : OwnerMapper {readOnly}
+                - {static} ownerNotFound : String {readOnly}
+                - messageSource : MessageSource
+                - transliterationService : TransliterationService {readOnly}
+
+                + saveOwner (ownerDTO : OwnerDTO) : OwnerIDDTO
+                + findOwner (ownerId : int) : OwnerDTO <<throws OwnerNotFoundException>>
+                + updatePetDetails (ownerId : int, petName : String) : void <<throws OwnerNotFoundException>>
+                + deleteOwner (ownerId : int) : void <<throws OwnerNotFoundException>>
+                + findAllOwners () : List<OwnerDTO>
+                + findIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners (pageable : Pageable) : Page<OwnerPetInfoDTO>
+                - getMessage (key : String) : String
+                - formattedLocalDate (localDate : LocalDate) : String
+                - formatDate (ownerDTO : OwnerDTO) : OwnerDTO
+                - transliteratedOwner (ownerDTO : OwnerDTO) : OwnerDTO
+            }
+        }
+
+        interface OwnerService <<service>> {
+            + saveOwner (ownerDTO : OwnerDTO) : OwnerIDDTO
+            + findOwner (ownerId : int) : OwnerDTO <<throws OwnerNotFoundException>>
+            + updatePetDetails (ownerId : int, petName : String) : void <<throws OwnerNotFoundException>>
+            + deleteOwner (ownerId : int) : void <<throws OwnerNotFoundException>>
+            + findAllOwners () : List<OwnerDTO>
+            + findIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners (pageable : Pageable) : Page<OwnerPetInfoDTO>
+        }
+
+        interface PetService <<service>> {
+            + findPet (petId: int) <<throws PetNotFoundException>>
+            + findAverageAgeOfPet () : AverageAgeDTO
+        }
+
+        class TransliterationService <<service>> {
+            - apiType : String
+
+            + transliterate (input : String, isoCode : String) : String
+            + callRealApi (input : String, isoCode : String) : String
+        }
+    }
+
+    package util {
+        interface OwnerMapper <<utility>> {
+            + ownerDTOToOwner(ownerDTO: OwnerDTO): Owner
+            + domesticPetDTOToDomesticPet(domesticPetDTO: DomesticPetDTO): DomesticPet
+            + wildPetDTOToWildPet(wildPetDTO: WildPetDTO): WildPet
+            + ownerToOwnerDTO(owner: Owner): OwnerDTO
+            + domesticPetToDomesticPetDTO(domesticPet: DomesticPet): DomesticPetDTO
+            + wildPetToWildPetDTO(wildPet: WildPet): WildPetDTO
+            + petDTOToPet(petDTO: PetDTO): Pet
+            + petToPetDTO(pet: Pet): PetDTO
+        }
+        class PetMapper <<utility>> {
+            {static}UNSUPPORTED_PET_INSTANCE: String
+            + petToPetDTO(pet: Pet): PetDTO
+            + domesticPetToDomesticPetDTO(domesticPet: DomesticPet): DomesticPetDTO
+            + wildPetToWildPetDTO(wildPet: WildPet): WildPetDTO
+        }
+    }
+
+    class Demo {
+        - ownerService : OwnerService {readOnly}
+        - petService : PetService {readOnly}
+        - {static} logger : LOGGER {readOnly}
+
+        + {static} main (args : String) : void
+    }
+
+' this is for package com.abhishekvermaa10
+}
+
+' Relations
+
+' Inheritance in entities
+Owner --|> Base : extends
+Pet --|> Base : extends
+DomesticPet --|> Pet : extends
+WildPet --|> Pet : extends
+
+' enum
+Pet --> Gender
+Pet --> PetTYpe
+Owner --> Gender
+
+
+' Inheritance in service
+OwnerServiceImpl ..|> OwnerService : implements
+PetServiceImpl ..|> PetService : implements
+
+
+' Inheritance in controller
+OwnerController --|> BaseController : extends
+PetController --|> BaseController : extends
+
+' Inheritance in dto
+DomesticPetDTO --|> PetDTO : extends
+WildPetDTO --|> PetDTO : extends
+
+' Associations
+OwnerRepository "1" --> "1.*" Owner : handles
+OwnerServiceImpl "1" --> "1" OwnerRepository
+OwnerServiceImpl "1" --> "1" OwnerMapper
+OwnerServiceImpl "1" --> "1" TransliterationService
+OwnerServiceImpl "1" --> "1" LocaleConfig : injects
+
+PetRepository "1" --> "1.*" Pet : handles
+PetServiceImpl "1" --> "1" PetRepository
+PetServiceImpl "1" --> "1" PetMapper
+
+' Controller
+PetController "1" --> "1" PetService
+OwnerController "1" --> "1" OwnerService
+BaseController "1" --> "1" LocaleConfig
+' Relations among packages
+
+
+note right of LogAspect::serviceMethodExpression
+@Pointcut
+execution(* com.abhishekvermaa10.service.impl.*.*(..))
+end note
+
+note right of LogAspect::logBeforeAdvice
+@Before
+Calls before service method
+end note
+
+note right of LogAspect::logAfterReturningAdvice
+@AfterReturning
+Logs return value of service method
+end note
+
+note right of LogAspect::logAfterThrowingAdvice
+@AfterThrowing
+Logs exception from service method
+end note
+@enduml

@@ -3,14 +3,18 @@ package com.abhishekvermaa10.service;
 import java.util.List;
 
 import com.abhishekvermaa10.dto.OwnerDTO;
+import com.abhishekvermaa10.dto.OwnerIDDTO;
+import com.abhishekvermaa10.dto.OwnerPetInfoDTO;
 import com.abhishekvermaa10.exception.OwnerNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * @author abhishekvermaa10
  */
 public interface OwnerService {
 	
-	void saveOwner(OwnerDTO ownerDTO);
+	OwnerIDDTO saveOwner(OwnerDTO ownerDTO);
 
 	OwnerDTO findOwner(int ownerId) throws OwnerNotFoundException;
 
@@ -19,7 +23,7 @@ public interface OwnerService {
 	void deleteOwner(int ownerId) throws OwnerNotFoundException;
 
 	List<OwnerDTO> findAllOwners();
-	
-	List<Object[]> findIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners(int pageNumber, int numberOfRecordsPerPage);
+
+	Page<OwnerPetInfoDTO> findIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners(Pageable pageable);
 
 }

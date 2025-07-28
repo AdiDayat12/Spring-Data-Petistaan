@@ -3,6 +3,8 @@ package com.abhishekvermaa10.entity;
 import com.abhishekvermaa10.enums.Gender;
 import com.abhishekvermaa10.enums.PetType;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -7,12 +7,19 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import com.abhishekvermaa10.config.LocaleConfig;
+import com.abhishekvermaa10.dto.OwnerPetInfoDTO;
+import com.abhishekvermaa10.service.TransliterationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.TestPropertySource;
@@ -34,141 +41,151 @@ import com.abhishekvermaa10.util.OwnerMapperImpl;
  * @author abhishekvermaa10
  */
 @TestPropertySource("classpath:messages.properties")
-@SpringBootTest(classes = { OwnerServiceImpl.class, OwnerMapperImpl.class })
+@SpringBootTest(classes = { OwnerServiceImpl.class, OwnerMapperImpl.class, LocaleConfig.class},
+                properties = "spring.profiles.active=test")
 class OwnerServiceImplTest {
 
-	@Autowired
-	private OwnerServiceImpl ownerServiceImpl;
-	@MockitoBean
-	private OwnerRepository ownerRepository;
+    @Autowired
+    private OwnerServiceImpl ownerServiceImpl;
+    @MockitoBean
+    private OwnerRepository ownerRepository;
+    @MockitoBean
+    private TransliterationService transliterationService;
+    @Test
+    void test_SaveOwner_WhenOwnerDTOIsValid_ShouldSaveOwner() {
+        // Given
+        OwnerDTO inputOwnerDTO = new OwnerDTO();
+        PetDTO inputDomesticPetDTO = new DomesticPetDTO();
+        inputOwnerDTO.setPetDTO(inputDomesticPetDTO);
+        // When
+        ownerServiceImpl.saveOwner(inputOwnerDTO);
+        // Then
+        verify(ownerRepository, times(1)).save(any(Owner.class));
+    }
 
-	@Test
-	void test_SaveOwner_WhenOwnerDTOIsValid_ShouldSaveOwner() {
-		// Given
-		OwnerDTO inputOwnerDTO = new OwnerDTO();
-		PetDTO inputDomesticPetDTO = new DomesticPetDTO();
-		inputOwnerDTO.setPetDTO(inputDomesticPetDTO);
-		// When
-		ownerServiceImpl.saveOwner(inputOwnerDTO);
-		// Then
-		verify(ownerRepository, times(1)).save(any(Owner.class));
-	}
+    @Test
+    void test_FindOwner_WhenOwnerExists_ShouldReturnOwnerDTO() throws OwnerNotFoundException {
+        // Given
+        int inputOwnerId = 1;
+        Owner expectedOwner = new Owner();
+        DomesticPet expectedDomesticPet = new DomesticPet();
+        expectedDomesticPet.setBirthDate(LocalDate.of(2020, 1, 8));
+        expectedOwner.setPet(expectedDomesticPet);
+        when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.of(expectedOwner));
+        // When
+        OwnerDTO actualOwnerDTO = ownerServiceImpl.findOwner(inputOwnerId);
+        // Then
+        assertThat(actualOwnerDTO).isNotNull();
+        verify(ownerRepository, times(1)).findById(inputOwnerId);
+    }
 
-	@Test
-	void test_FindOwner_WhenOwnerExists_ShouldReturnOwnerDTO() throws OwnerNotFoundException {
-		// Given
-		int inputOwnerId = 1;
-		Owner expectedOwner = new Owner();
-		Pet expectedDomesticPet = new DomesticPet();
-		expectedOwner.setPet(expectedDomesticPet);
-		when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.of(expectedOwner));
-		// When
-		OwnerDTO actualOwnerDTO = ownerServiceImpl.findOwner(inputOwnerId);
-		// Then
-		assertThat(actualOwnerDTO).isNotNull();
-		verify(ownerRepository, times(1)).findById(inputOwnerId);
-	}
+    @Test
+    void test_FindOwner_WhenOwnerDoesNotExist_ShouldThrowOwnerNotFoundException() {
+        // Given
+        int inputOwnerId = 1;
+        when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.empty());
+        String expectedMessage = String.format("Can't find owner with ownerId %s.", inputOwnerId);
+        // When & Then
+        assertThatThrownBy(() -> ownerServiceImpl.findOwner(inputOwnerId)).isInstanceOf(OwnerNotFoundException.class)
+                .hasMessage(expectedMessage);
+        verify(ownerRepository, times(1)).findById(inputOwnerId);
+    }
 
-	@Test
-	void test_FindOwner_WhenOwnerDoesNotExist_ShouldThrowOwnerNotFoundException() {
-		// Given
-		int inputOwnerId = 1;
-		when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.empty());
-		String expectedMessage = String.format("Can't find owner with ownerId %s", inputOwnerId);
-		// When & Then
-		assertThatThrownBy(() -> ownerServiceImpl.findOwner(inputOwnerId)).isInstanceOf(OwnerNotFoundException.class)
-				.hasMessage(expectedMessage);
-		verify(ownerRepository, times(1)).findById(inputOwnerId);
-	}
+    @Test
+    void test_UpdatePetDetails_WhenOwnerExists_ShouldUpdatePetDetails() throws OwnerNotFoundException {
+        // Given
+        int inputOwnerId = 1;
+        String inputPetName = "NewPetName";
+        Owner expectedOwner = new Owner();
+        Pet expectedDomesticPet = new DomesticPet();
+        expectedOwner.setPet(expectedDomesticPet);
+        String expectedUpdatedPetName = inputPetName;
+        when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.of(expectedOwner));
+        // When
+        ownerServiceImpl.updatePetDetails(inputOwnerId, inputPetName);
+        // Then
+        assertThat(expectedOwner.getPet().getName()).isEqualTo(expectedUpdatedPetName);
+        verify(ownerRepository, times(1)).findById(inputOwnerId);
+        verify(ownerRepository, times(1)).save(expectedOwner);
+    }
 
-	@Test
-	void test_UpdatePetDetails_WhenOwnerExists_ShouldUpdatePetDetails() throws OwnerNotFoundException {
-		// Given
-		int inputOwnerId = 1;
-		String inputPetName = "NewPetName";
-		Owner expectedOwner = new Owner();
-		Pet expectedDomesticPet = new DomesticPet();
-		expectedOwner.setPet(expectedDomesticPet);
-		String expectedUpdatedPetName = inputPetName;
-		when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.of(expectedOwner));
-		// When
-		ownerServiceImpl.updatePetDetails(inputOwnerId, inputPetName);
-		// Then
-		assertThat(expectedOwner.getPet().getName()).isEqualTo(expectedUpdatedPetName);
-		verify(ownerRepository, times(1)).findById(inputOwnerId);
-		verify(ownerRepository, times(1)).save(expectedOwner);
-	}
+    @Test
+    void test_UpdatePetDetails_WhenOwnerDoesNotExist_ShouldThrowOwnerNotFoundException() {
+        // Given
+        int inputOwnerId = 1;
+        String inputPetName = "NewPetName";
+        when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.empty());
+        String expectedMessage = String.format("Can't find owner with ownerId %s.", inputOwnerId);
+        // When & Then
+        assertThatThrownBy(() -> ownerServiceImpl.updatePetDetails(inputOwnerId, inputPetName))
+                .isInstanceOf(OwnerNotFoundException.class).hasMessage(expectedMessage);
+        verify(ownerRepository, times(1)).findById(inputOwnerId);
+    }
 
-	@Test
-	void test_UpdatePetDetails_WhenOwnerDoesNotExist_ShouldThrowOwnerNotFoundException() {
-		// Given
-		int inputOwnerId = 1;
-		String inputPetName = "NewPetName";
-		when(ownerRepository.findById(inputOwnerId)).thenReturn(Optional.empty());
-		String expectedMessage = String.format("Can't find owner with ownerId %s", inputOwnerId);
-		// When & Then
-		assertThatThrownBy(() -> ownerServiceImpl.updatePetDetails(inputOwnerId, inputPetName))
-				.isInstanceOf(OwnerNotFoundException.class).hasMessage(expectedMessage);
-		verify(ownerRepository, times(1)).findById(inputOwnerId);
-	}
+    @Test
+    void test_DeleteOwner_WhenOwnerExists_ShouldDeleteOwner() throws OwnerNotFoundException {
+        // Given
+        int inputOwnerId = 1;
+        when(ownerRepository.existsById(inputOwnerId)).thenReturn(true);
+        // When
+        ownerServiceImpl.deleteOwner(inputOwnerId);
+        // Then
+        verify(ownerRepository, times(1)).existsById(inputOwnerId);
+        verify(ownerRepository, times(1)).deleteById(inputOwnerId);
+    }
 
-	@Test
-	void test_DeleteOwner_WhenOwnerExists_ShouldDeleteOwner() throws OwnerNotFoundException {
-		// Given
-		int inputOwnerId = 1;
-		when(ownerRepository.existsById(inputOwnerId)).thenReturn(true);
-		// When
-		ownerServiceImpl.deleteOwner(inputOwnerId);
-		// Then
-		verify(ownerRepository, times(1)).existsById(inputOwnerId);
-		verify(ownerRepository, times(1)).deleteById(inputOwnerId);
-	}
+    @Test
+    void test_DeleteOwner_WhenOwnerDoesNotExist_ShouldThrowOwnerNotFoundException() {
+        // Given
+        int inputOwnerId = 1;
+        when(ownerRepository.existsById(inputOwnerId)).thenReturn(false);
+        String expectedMessage = String.format("Can't find owner with ownerId %s.", inputOwnerId);
+        // When & Then
+        assertThatThrownBy(() -> ownerServiceImpl.deleteOwner(inputOwnerId)).isInstanceOf(OwnerNotFoundException.class)
+                .hasMessage(expectedMessage);
+        verify(ownerRepository, times(1)).existsById(inputOwnerId);
+    }
 
-	@Test
-	void test_DeleteOwner_WhenOwnerDoesNotExist_ShouldThrowOwnerNotFoundException() {
-		// Given
-		int inputOwnerId = 1;
-		when(ownerRepository.existsById(inputOwnerId)).thenReturn(false);
-		String expectedMessage = String.format("Can't find owner with ownerId %s", inputOwnerId);
-		// When & Then
-		assertThatThrownBy(() -> ownerServiceImpl.deleteOwner(inputOwnerId)).isInstanceOf(OwnerNotFoundException.class)
-				.hasMessage(expectedMessage);
-		verify(ownerRepository, times(1)).existsById(inputOwnerId);
-	}
+    @Test
+    void test_FindAllOwners_ShouldReturnOwnerDTOList() {
+        // Given
+        Owner expectedOwner1 = new Owner();
+        Pet expectedDomesticPet = new DomesticPet();
+        expectedOwner1.setPet(expectedDomesticPet);
+        Owner expectedOwner2 = new Owner();
+        Pet expectedWildPet = new WildPet();
+        expectedOwner2.setPet(expectedWildPet);
+        List<Owner> expectedOwnerList = List.of(expectedOwner1, expectedOwner2);
+        when(ownerRepository.findAll()).thenReturn(expectedOwnerList);
+        // When
+        List<OwnerDTO> actualOwnerDTOList = ownerServiceImpl.findAllOwners();
+        // Then
+        assertThat(actualOwnerDTOList).hasSize(expectedOwnerList.size());
+        verify(ownerRepository, times(1)).findAll();
+    }
 
-	@Test
-	void test_FindAllOwners_ShouldReturnOwnerDTOList() {
-		// Given
-		Owner expectedOwner1 = new Owner();
-		Pet expectedDomesticPet = new DomesticPet();
-		expectedOwner1.setPet(expectedDomesticPet);
-		Owner expectedOwner2 = new Owner();
-		Pet expectedWildPet = new WildPet();
-		expectedOwner2.setPet(expectedWildPet);
-		List<Owner> expectedOwnerList = List.of(expectedOwner1, expectedOwner2);
-		when(ownerRepository.findAll()).thenReturn(expectedOwnerList);
-		// When
-		List<OwnerDTO> actualOwnerDTOList = ownerServiceImpl.findAllOwners();
-		// Then
-		assertThat(actualOwnerDTOList).hasSize(expectedOwnerList.size());
-		verify(ownerRepository, times(1)).findAll();
-	}
+    @Test
+    void test_FindIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners_ShouldReturnOwnerDetails() {
+        // Given
+        int inputPageNumber = 1;
+        int inputNumberOfRecordsPerPage = 2;
+        Pageable pageable = PageRequest.of(inputPageNumber, inputNumberOfRecordsPerPage);
+        Object[] expectedRow = { 3, "FirstName3", "LastName3", "PetName3" };
+        List<Object[]> expectedDetailsList = List.<Object[]>of(expectedRow);
 
-	@Test
-	void test_FindIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners_ShouldReturnOwnerDetails() {
-		// Given
-		int inputPageNumber = 1;
-		int inputNumberOfRecordsPerPage = 2;
-		Pageable pageable = PageRequest.of(inputPageNumber, inputNumberOfRecordsPerPage);
-		Object[] expectedRow = { 3, "FirstName3", "LastName3", "PetName3" };
-		List<Object[]> expectedDetailsList = List.<Object[]>of(expectedRow);
-		when(ownerRepository.findIdAndFirstNameAndLastNameAndPetName(pageable)).thenReturn(expectedDetailsList);
-		// When
-		List<Object[]> actualDetailsList = ownerServiceImpl
-				.findIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners(inputPageNumber, inputNumberOfRecordsPerPage);
-		// Then
-		assertThat(actualDetailsList).isEqualTo(expectedDetailsList);
-		verify(ownerRepository, times(1)).findIdAndFirstNameAndLastNameAndPetName(pageable);
-	}
+        OwnerPetInfoDTO dto = new OwnerPetInfoDTO(3, "FirstName3", "LastName3", "PetName3");
+        List<OwnerPetInfoDTO> expectedDtoList = List.of(dto);
+        Page<OwnerPetInfoDTO> expectedPage = new PageImpl<>(expectedDtoList, pageable, 1);
+
+        when(ownerRepository.findIdAndFirstNameAndLastNameAndPetName(pageable))
+                .thenReturn(expectedDetailsList);
+
+        // When
+        Page<OwnerPetInfoDTO> actualDetailsList = ownerServiceImpl
+                .findIdAndFirstNameAndLastNameAndPetNameOfPaginatedOwners(pageable);
+        // Then
+        assertThat(actualDetailsList.getContent()).isEqualTo(expectedPage.getContent());
+        verify(ownerRepository, times(1)).findIdAndFirstNameAndLastNameAndPetName(pageable);
+    }
 
 }

@@ -1,22 +1,57 @@
-logging:
-  file:
-    name: ${logging.file.path}/${spring.application.name}.log
-    path: logs
-  logback:
-    rollingpolicy:
-      file-name-pattern: ${logging.file.path}/${spring.application.name}-%d{yyyy-MM-dd}-%i.log
-      max-file-size: 10MB
 spring:
   application:
     name: Petistaan
+  profiles:
+    active: prod
+
   datasource:
-    password: ${MYSQL_PASSWORD}
     url: jdbc:mysql://localhost:3306/petistaan
-    username: ${MYSQL_USERNAME}
+    username: root
+    password: mysql123
+
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-  sql:
-    init:
-      mode: never
+
+  messages:
+    basename: messages
+    encoding: UTF-8
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+
+logging:
+  file:
+    path: logs
+    name: ${logging.file.path}/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${logging.file.path}/${spring.application.name}-%d{yyyy-MM-dd}-%i.log
+      max-file-size: 10MB
+
+springdoc:
+  api-docs:
+    path: /api/documentation
+
+info:
+  app:
+    name: Pet app
+    message: This app for managing owner and pet operation
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    mail:
+      enabled: false
